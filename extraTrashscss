@@ -1,0 +1,351 @@
+// @import './component_css/innner.scss';
+@import './component_css/inner';
+@import './component_css/othercsscomp';
+
+// only this page need bold font thats why bro
+@font-face {
+	font-family: "ProximaNova";
+	src: url('./font/Proxima-Nova-Bold.otf') format("opentype");
+	font-weight: bold;
+}
+
+@include keyframes(water-wave) {
+	0%{
+		transform: scale(0);
+		opacity: 1;
+	}
+	100%{
+		transform: scale(1);
+		opacity: 0;
+	}
+}
+@include keyframes(bottom-top) {
+	0%{
+		top: 80%;
+		opacity: 1;
+		
+	}
+	
+	99%{
+		top:-20%;
+		opacity: 1;
+	}
+	100%{
+		top:-20%;
+		opacity: 0;
+	}
+}
+@include keyframes(left-right) {
+	0%{
+		transform: translateX(-50px) scale(0.2) ;
+	}
+	10%{
+		transform: translateX(-100px) scale(0.2);
+	}
+	25%{
+		transform: translateX(-300px) scale(0.6) ;
+	}
+	40%{
+		transform: translateX(-150px) scale(1) ;
+	}
+	60%{
+		transform: translateX(-350px) scale(1) ;
+
+	}
+	80%{
+		transform: translateX(-80px) scale(1) ;
+	}
+	100%{
+		transform: translateX(0px) scale(0.2) ;
+	}
+}
+
+
+$common-padding: 70px;
+body{
+	flex-wrap: wrap;
+}
+
+.login-pages{
+	max-width: 1920px;
+	.br{
+		border-radius:8px !important;
+	}
+
+	.illustration{
+		@include bg;
+		&:before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			@include bg;
+			opacity: 0.8;
+		}
+		.animation--part{
+			.logo{
+				position: absolute;
+				bottom: 10px;
+				right: -50px;
+				svg{
+					height: 175px;
+					width: auto;
+				}
+			}
+		}
+		.person--circular--wrapper{
+			position: absolute;
+			top: 100%;
+			right: -6%;
+			z-index: 0;
+			animation: bottom-top 40s  4s linear infinite;
+
+			@for $i from 1 through 10 {
+				&:nth-child(#{$i}) {
+					animation-delay: $i * 4 + 4s;
+					.person--circular{
+						transform:scale(0.2);
+						animation-delay: $i * 6 + 3s;
+						.circle--lg, .circle--sm{
+							animation-delay: $i *2 + 4s;							
+						}
+					}
+				}
+				&:nth-child(3n){
+					.person--circular{
+						animation-direction: alternate-reverse;
+					}
+				}
+			}
+
+
+			.person--circular{
+				position: relative;
+				height: 100px;
+				width: 100px;
+				border-radius: 50%;
+				overflow: hidden;
+				opacity: 0.8;
+				animation: left-right 18s 6s linear infinite alternate;
+
+				img{
+					@include image;
+					border-radius:50%;
+					opacity: 0.3;
+				}
+				&> div, &> div:before, &> div:after {
+					content: '';
+					@include position;
+					background-color: transparent;
+					border:2px solid #fff;
+					top: 0;
+					left: 0;
+					border-radius:50%;
+				}
+				.circle--sm{
+					transform: scale(0);
+					// border:none;
+					animation-delay: 3s !important;
+					&:before{
+						transform: scale(1.5);
+					}
+					&:after{
+						transform: scale(1.75);
+					}
+				}
+				.circle--sm, .circle--lg{
+					animation: water-wave 6s ease-in-out infinite;
+				}
+				.pp--image{
+					background-color: hsla(0, 0%, 100%, 0.64);
+					padding: 10px;
+					transform: scale(0.4);
+					box-shadow: 0 0 0 10px rgba(255,255,255,0.3);
+					border: none;
+					&:before, &:after{
+						content: none;
+					}
+					
+					
+				}
+				.circle--lg{
+					transform: scale(1);
+					&:before{
+						transform: scale(0.83);
+					}
+					&:after{
+						transform: scale(0.93);
+					}
+				}
+
+
+			}
+		}
+
+	}
+
+	.profile--card{
+		@include card--profile;
+	}
+
+	.popular--user{
+		transform: translateX( -50px - $common-padding );
+		.profile--card{ 
+			margin-bottom: 40px;
+			.card__img {
+				height: 100px;
+				width: 100px;
+				min-width: 100px;
+				box-shadow: 0 0 0 7px #fff;
+				padding: 6px;
+				border-width:3px;
+				background-color: #fff;
+			}
+		}
+	}
+
+	.login-pages__main{
+		flex-grow: 2;
+		padding: 50px $common-padding;
+		position: relative;
+		button.common{
+			font-size: 17px !important;
+			height: 50px;
+		}
+		.login__top {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			margin-bottom: 0px;
+		}
+		@include app;
+		.form-control{
+			@include input;
+			margin-right: 20px;
+			width: 200px;
+			background-color: #fafafa;
+		}
+		button[type=submit]{
+			@include button;
+			font-weight: 600;
+			color:$primary-color;
+			background-color: transparent;
+			background-image: none;
+			border:1px solid $primary-color;
+			font-weight: normal;
+
+		}
+
+		.app{
+			a{
+				width: 50%;
+				text-align: center;
+				background-color: #0a0a0a;
+				@include br;
+				padding: 2px;
+				img{
+					display: inline;
+				}
+
+			}
+		}
+	}
+
+	.signup--wrapper{
+
+		.video--wrapper{
+			min-height: 400px;
+			width: 130%;
+			margin-left: -50%;
+			position: relative;
+			background-color: #000;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			@include br;
+			video{
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				@include br;
+
+			}
+
+		}
+		.signup--left{
+			flex-grow: 2;
+		}
+
+		.signup--right {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			width: 550px;
+			@include responsive(1556px){
+				width: 580px;
+			}
+		}
+		
+		.signup--bottom{
+			
+			button{
+				@include button;
+				width: 100%;
+				@include card__margin;
+			}
+		}
+
+		.signup--wrapper__half {
+			max-width: 380px;
+			min-height: 400px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			position: relative;
+			transition: .3s linear;
+
+			// &.active{
+			// 	height: 430px;
+
+			// }
+			.sign-up--form{
+				display: none;
+				width: 100% !important;
+			}
+		}
+
+
+		.logo--top{
+			img{
+				height: 45px;
+				width: auto;
+				@include card__margin;
+			}
+		}
+		
+		.sign-up--form{
+			.form-control{
+				width: 100%;
+			}	
+		}
+	}
+}
+
+.login-pages__footer{
+	position: absolute;
+	bottom:0;
+	left:0;
+	width: 100%;
+	background-color: #fff;
+	.nav{
+		justify-content: space-evenly;
+		padding: 0 $common-padding;
+	}
+	.nav-link{
+		margin: 0;
+		color: $dark;
+		font-size: 14px;
+	}
+}

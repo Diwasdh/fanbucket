@@ -1,0 +1,36 @@
+@import './header';
+
+.inner-page{
+	img{
+		@include image;
+	}
+}
+
+.inner-page.no-navs{
+	width: 100%;
+	padding: 0;
+	flex-grow: 0;
+	display: flex;
+	height: 100vh;
+	overflow: hidden;
+	background-color:#fff;
+	position: relative;
+	max-height: 1080px;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	@include responsivemmd{
+		margin-bottom: 0;
+	}
+	aside.illustration{
+		width: 30%;
+		min-width: 400px;
+		position: relative;	
+		@include responsivemmd{
+			width: 60px;
+			min-width: 60px;
+		}
+
+	}
+
+}
+

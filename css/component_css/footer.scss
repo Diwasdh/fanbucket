@@ -1,0 +1,82 @@
+footer{
+	background-color: $lb;
+	margin-top: 40px;
+	padding-top: 40px;
+
+	ul{
+		@include ul;
+	}
+
+	.small__title{
+		font-size: 15px;
+		padding: 6px 0;
+		color: #fff;
+		font-weight: 500;
+	}
+
+	.form-inline{
+		.form-group{
+			position: relative;
+			width: 100%;
+			margin: 10px 0;
+		}
+		.form-control{
+			width: 100%;
+			height: 56px;
+			border-radius: 16px;
+			border: none;
+			box-shadow: none !important;
+			background-color: #fff;
+			padding: 0 20px;
+			padding-right: 50px;
+		}
+		button, input[type="submit"]{
+			position: absolute;
+			height: 100%;
+			top: 0;
+			right: 0;
+			background-color:transparent;
+			color: $primary-color;
+			border:0;
+			font-size: 30px;
+			padding: 0 16px;
+		}
+	}
+	
+	.download{
+		margin-top: 30px;
+		img{
+			height: 40px;
+			width: auto;
+		}
+	}
+
+	.copyright{
+		justify-content: space-between;
+		align-items: center;
+		.small__title{
+			color: $white;
+			font-weight:400;
+		}
+		a{
+			color: #fff;
+			&:hover{
+				color: $primary-color;
+			}
+		}
+	}
+
+	canvas, #fakeVideo{
+		display: none;
+		height: 600px;
+		width: 600px;
+		position: absolute;
+		transform: scale(0);
+		opacity: 0;
+		visibility: none;
+		z-index: -6;
+
+	}
+
+}
+

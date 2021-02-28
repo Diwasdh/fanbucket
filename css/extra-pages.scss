@@ -1,0 +1,684 @@
+// @import './component_css/innner.scss';
+@import './component_css/inner';
+@import './component_css/othercsscomp';
+
+// only this page need bold font thats why bro
+@font-face {
+	font-family: "ProximaNova";
+	src: url('./font/Proxima-Nova-Bold.otf') format("opentype");
+	font-weight: bold;
+}
+
+@include keyframes(water-wave) {
+	0%{
+		transform: scale(0);
+		opacity: 1;
+	}
+	100%{
+		transform: scale(1);
+		opacity: 0;
+	}
+}
+@include keyframes(bottom-top) {
+	0%{
+		transform: rotate(0deg);
+		opacity: 1;
+	}
+	80%{
+		// transform: rotate(160deg);
+		opacity: 1;
+	}
+	
+	100%{
+		transform: rotate(200deg);
+		opacity: 0;
+
+	}
+}
+
+@media screen and (max-width:600px) {
+	@keyframes bottom-top {
+		0%{
+			transform: translateY(0);
+			opacity: 1;
+		}
+		80%{
+			opacity: 1;
+		}
+
+		100%{
+			transform: translateY(-100%);
+			opacity: 0;
+
+		}
+	}
+}
+
+@include keyframes(left-right) {
+	0%{
+		transform: rotate(0deg) scale(0.2) ;
+	}
+
+	20%{
+		transform: rotate(-40deg) scale(1) ;
+
+	}
+	
+	100%{
+		transform: rotate(-200deg) scale(1.5) ;
+	}
+}
+
+
+$common-padding: 70px;
+body{
+	flex-wrap: wrap;
+}
+
+.login-pages{
+	max-width: 1920px;
+	.br{
+		border-radius:8px !important;
+	}
+
+	.illustration{
+		@include bg;
+		overflow: hidden;
+		&:before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			@include bg;
+			opacity: 0.8;
+		}
+		.animation--part{
+			.logo{
+				position: absolute;
+				bottom: 10px;
+				right: -50px;
+
+				svg{
+					height: 175px;
+					width: auto;
+					@include responsivemmd{
+						height: 125px;
+					}
+				}
+			}
+		}
+		.person--circular--wrapper{
+			position: absolute;
+			top: 105px;
+			right: -5%;
+			z-index: 0;
+			animation: bottom-top 30s  4s linear infinite;
+			transform-origin: 100% center;
+			height: 85%;
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			@include responsive(1550px){
+				right: -8%;
+				height: 78%;
+			}
+			@include responsivemmd{
+				right: -27px;
+				top: 120px;
+			}
+
+			@for $i from 1 through 10 {
+				&:nth-child(#{$i}) {
+					&, .person--circular{
+						// animation-delay: $i * 6 + 6s;
+						animation-delay: $i * 6s;
+
+
+					}
+					.circle--lg, .circle--sm{
+						// animation-delay: $i *4 + 4s !important;	
+						animation-delay: $i *4 + 0s !important;	
+
+						animation-duration: $i + 5s !important;						
+					}
+				}
+				&:nth-child(3n){
+					transform-origin: 32% 40%;
+				}
+			}
+
+
+			.person--circular{
+				position: relative;
+				height: 100px;
+				width: 100px;
+				border-radius: 50%;
+				overflow: hidden;
+				opacity: 0.8;
+				transform:scale(0.2);
+				animation: left-right 30s  4s linear infinite;
+
+				img{
+					@include image;
+					border-radius:50%;
+					opacity: 0.3;
+				}
+				&> div, &> div:before, &> div:after {
+					content: '';
+					@include position;
+					background-color: transparent;
+					border:2px solid #fff;
+					top: 0;
+					left: 0;
+					border-radius:50%;
+				}
+				.circle--sm{
+					transform: scale(0);
+					// border:none;
+					animation-delay: 3s !important;
+					&:before{
+						transform: scale(1.5);
+					}
+					&:after{
+						transform: scale(1.75);
+					}
+				}
+				.circle--sm, .circle--lg{
+					animation: water-wave 6s ease-in-out infinite;
+				}
+				.pp--image{
+					background-color: hsla(0, 0%, 100%, 0.64);
+					padding: 10px;
+					transform: scale(0.4);
+					box-shadow: 0 0 0 10px rgba(255,255,255,0.3);
+					border: none;
+					&:before, &:after{
+						content: none;
+					}
+					
+					
+				}
+				.circle--lg{
+					transform: scale(1);
+					&:before{
+						transform: scale(0.83);
+					}
+					&:after{
+						transform: scale(0.93);
+					}
+				}
+
+
+			}
+		}
+
+	}
+
+	.profile--card{
+		@include card--profile;
+	}
+
+	.popular--user{
+		transform: translateX( -50px - $common-padding );
+		.profile--card{ 
+			margin-bottom: 40px;
+			.card__img {
+				height: 100px;
+				width: 100px;
+				min-width: 100px;
+				box-shadow: 0 0 0 7px #fff;
+				padding: 6px;
+				border-width:3px;
+				background-color: #fff;
+			}
+		}
+	}
+
+	.login-pages__main{
+		flex-grow: 2;
+		padding: 50px $common-padding;
+		position: relative;
+		@include responsivemmd{
+			padding: 30px;
+		}
+		button.common{
+			font-size: 17px !important;
+			height: 50px;
+		}
+		.login__top {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			margin-bottom: 40px;
+		}
+		@include app;
+		.form-control{
+			@include input;
+			margin-right: 20px;
+			width: 200px;
+			background-color: #fafafa;
+		}
+		button[type=submit]{
+			@include button;
+			font-weight: 600;
+			color:$primary-color;
+			background-color: transparent;
+			background-image: none;
+			border:1px solid $primary-color;
+			font-weight: normal;
+
+		}
+
+		.app{
+			a{
+				width: 50%;
+				text-align: center;
+				background-color: #0a0a0a;
+				@include br;
+				padding: 2px;
+				img{
+					display: inline;
+				}
+
+			}
+		}
+	}
+
+	.signup--wrapper{
+
+		.video--wrapper{
+			min-height: 400px;
+			width: 130%;
+			margin-left: -50%;
+			position: relative;
+			background-color: #000;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			@include br;
+			video{
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				@include br;
+
+			}
+
+		}
+		.signup--left{
+			flex-grow: 2;
+		}
+
+		.signup--right {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			width: 550px;
+			@include responsive(1556px){
+				width: 580px;
+			}
+		}
+		
+		.signup--bottom{
+			
+			button{
+				@include button;
+				width: 100%;
+				@include card__margin;
+			}
+		}
+
+		.signup--wrapper__half {
+			max-width: 380px;
+			min-height: 400px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			position: relative;
+			transition: .3s linear;
+
+			.sign-up--form{
+				display: none;
+				width: 100% !important;
+			}
+		}
+
+
+		.logo--top{
+			img{
+				height: 45px;
+				width: auto;
+				@include card__margin;
+			}
+		}
+		
+		.sign-up--form{
+			.form-control{
+				width: 100%;
+			}	
+		}
+	}
+}
+
+.login-pages__footer{
+	position: absolute;
+	bottom:0;
+	left:0;
+	width: 100%;
+	background-color: #fff;
+	.nav{
+		justify-content: space-evenly;
+		padding: 0 $common-padding;
+	}
+	.nav-link{
+		margin: 0;
+		color: $dark;
+		font-size: 14px;
+	}
+}
+
+.landing--page{
+
+	.login-pages__main{
+		display: flex;
+		align-items: center;
+	}
+
+	.illustration{
+		.animation--part{
+			.logo{
+				bottom: -70px;	
+				@include responsivemmd{
+					bottom:-50px;
+				}
+			}
+			.person--circular--wrapper{
+				height: 86%;
+			}
+		} 
+	}
+
+	.modal{
+		@include modal;
+		.card__link{
+			display: flex;
+			justify-content: center;
+			margin-top: 2em;
+		}
+		p.para{
+			color: $dark;
+			text-align: center;
+		}
+	}
+
+	$color: (
+		main: #c9a04e,
+		minor: #f7f6f2,
+		bg: #1a202e,
+		);
+	$particles: 50;
+	$width: 500;
+	$height: 300;
+	$gravityY: 150;
+	$frequency: infinite;
+
+	$box-shadow: ();
+	$box-shadow2: ();
+
+	@for $i from 0 through $particles {
+		$box-shadow: $box-shadow,
+		random($width)-$width /
+		2 +
+		px
+		random($height)-$height /
+		1.2 +
+		px
+		hsl(random(360), 100, 50);
+		$box-shadow2: $box-shadow2, 0 0 #fff;
+	}
+
+	@mixin keyframes($animationName) {
+		@-webkit-keyframes #{$animationName} {
+			@content;
+		}
+
+		@-moz-keyframes #{$animationName} {
+			@content;
+		}
+
+		@-o-keyframes #{$animationName} {
+			@content;
+		}
+
+		@-ms-keyframes #{$animationName} {
+			@content;
+		}
+
+		@keyframes #{$animationName} {
+			@content;
+		}
+	}
+
+	@mixin animation-delay($settings) {
+		-moz-animation-delay: $settings;
+		-webkit-animation-delay: $settings;
+		-o-animation-delay: $settings;
+		-ms-animation-delay: $settings;
+		animation-delay: $settings;
+	}
+
+	@mixin animation-duration($settings) {
+		-moz-animation-duration: $settings;
+		-webkit-animation-duration: $settings;
+		-o-animation-duration: $settings;
+		-ms-animation-duration: $settings;
+		animation-duration: $settings;
+	}
+
+	@mixin animation($settings) {
+		-moz-animation: $settings;
+		-webkit-animation: $settings;
+		-o-animation: $settings;
+		-ms-animation: $settings;
+		animation: $settings;
+	}
+
+	@mixin transform($settings) {
+		transform: $settings;
+		-moz-transform: $settings;
+		-webkit-transform: $settings;
+		-o-transform: $settings;
+		-ms-transform: $settings;
+	}
+
+
+	.firework {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 10px;
+		height: 10px;
+	}
+
+	.firework > .before,
+	.firework > .after {
+		position: absolute;
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		box-shadow: $box-shadow2;
+		@include animation-delay((0s, 0s, 0s));
+		@include animation(
+			(
+				1s bang ease-out 1s $frequency backwards,
+				1s gravity ease-in 1s $frequency backwards,
+				5s position linear 1s $frequency backwards
+				)
+			);
+	}
+
+	.firework > .after {
+		@include animation-delay((0s, 0s, 0s));
+		@include animation-duration((0s, 0s, 6s));
+	}
+
+	@include keyframes(bang) {
+		to {
+			box-shadow: $box-shadow;
+		}
+	}
+
+	@include keyframes(gravity) {
+		to {
+			@include transform(translateY($gravityY + px));
+			opacity: 0;
+		}
+	}
+
+	@include keyframes(position) {
+		0%,
+		19.9% {
+			margin-top: 10%;
+			margin-left: 40%;
+		}
+		20%,
+		39.9% {
+			margin-top: 40%;
+			margin-left: 30%;
+		}
+		40%,
+		59.9% {
+			margin-top: 20%;
+			margin-left: 70%;
+		}
+		60%,
+		79.9% {
+			margin-top: 30%;
+			margin-left: 20%;
+		}
+		80%,
+		99.9% {
+			margin-top: 30%;
+			margin-left: 80%;
+		}
+	}
+
+} 
+
+
+.profile--logout--aside{
+	.logo {
+		margin-bottom: 100px;
+		img {
+			height: 3rem;
+			object-fit: contain;
+		}
+	}
+	section {
+		margin-bottom: 60px;
+	}
+	@include app;
+	.app{
+		a{
+			width: 50%;
+			text-align: center;
+			background-color: #0a0a0a;
+			@include br;
+			padding: 2px;
+			img{
+				display: inline;
+			}
+
+		}
+	}
+	.signup--right{
+		button{
+			width: 100%;
+			@include button;
+			height: 50px;
+			font-size: 18px;
+			@include br12;
+			margin-bottom: 15px;
+			&.br{
+				color: $dark;
+				background-color: transparent;
+				background-image: none;
+				border: 1px solid $dark;
+				font-weight: normal
+			}
+		}
+		.logo--top{
+			margin-bottom: 60px;
+		}
+		.signup--bottom--bottom{
+			margin-bottom: 20px;
+		}
+		.signup--bottom{
+
+		}
+	}
+	.section--video{
+		position: relative;
+		video{
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+		}
+		.play{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform:translate(-50%, -50%);
+			font-size: 50px;
+			color: #fff;
+			opacity: 0.5;
+			overflow: visible;
+			color: #fff;
+			opacity: 0.5;
+		}
+	}
+	footer{
+		margin-top: 0;
+		padding-top: 0;
+	}
+
+
+
+}
+
+.profile--logout{
+	max-width: 1080px;
+	margin:0 50px;
+	background-color: rgba(255, 255, 255, 0.5);
+	.profile__card__wallpaper{
+		.card__body{
+			@include box-shadow;
+			padding: 40px;
+		}
+		.card__wallpaper{
+			height: 30vh;
+		}
+		.card__top__link{
+			.option__link {
+				height: 40px;
+				min-width: 40px;
+				text-align: center;
+				vertical-align: middle;
+				border-radius: 40px;
+				line-height: 37px;
+				margin-top: -6px;
+				margin-left: 10px;
+				fill: #898989;
+				width: auto;
+				padding: 0 18px;
+			}
+		}
+	}
+
+
+
+
+}

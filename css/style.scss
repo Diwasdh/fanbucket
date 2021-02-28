@@ -1,0 +1,268 @@
+@import './component_css/header';
+@import './component_css/right--aside' ;
+
+
+.carousel {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 1s ease;
+	-webkit-transition: opacity 1s ease;
+}
+
+
+.carousel.slick-initialized {
+	visibility: visible;
+	opacity: 1;    
+}
+
+
+main{
+	flex-grow: 2;
+	background-color: $white;
+	@include mainP;
+	width: calc(100% - 560px);
+	max-width: 979px;
+	@include responsivemmd{
+		padding: 0 10px;
+		width: 100%;
+		margin-bottom: 50px;
+		display: flex;
+		flex-direction: column;
+	}
+	section{
+		@include mb;
+	}
+	
+	.post{
+		position: sticky;
+		top: -110px;
+		z-index: 99;
+		@include transition-in;
+		@include responsivemmd{
+			position:relative;
+			top: 0px;
+			z-index: 1;
+		}
+		&.active{
+			@include transition-out;
+			top: 0px;
+		}
+		.profile--card{
+			display: flex;
+			align-items: center;
+			width: 100%;
+			background-color:#fff;
+			padding: 20px;
+			transition: .3s linear;
+			box-shadow:rgba(35, 35, 35, 0.03) -3px 4px 12px;
+			@include responsivemmd{
+				padding: 8px;	
+			}
+			&.active{
+				@include box-shadow;
+			}
+			.card__img{
+				@include circle--img;
+				@include responsivemmd{
+					height: 40px;
+					width: 40px;
+					min-width: 40px;
+				}
+			}
+			.card__title{
+				@include card-title;
+			}
+			@include  card__link;
+			.card__link{
+				input[type='file']{
+					height: 0;
+					width: 0;
+					opacity: 0;
+					visibility: hidden;
+				}
+
+			}
+			.card__body{
+				padding:0 16px;
+				flex-grow: 2;
+				height: 50px;
+				margin: 0;
+				@include responsivemmd{
+					padding: 0;
+				}
+				.form-control{
+					height: 100%;
+					border: none;
+					box-shadow: none !important;
+					font-weight: 500 !important;
+					@include lineclamp(1);
+				}
+			}
+
+
+		}
+	}
+
+	.moments{
+		@include responsivemmd{
+			order: -1;
+			margin-top: 20px;
+		}
+		.title__wrapper{
+			@include responsivemmd{
+				display: none;
+			}
+		}
+		.stories{
+			@include scrollbar;
+			// justify-content: space-between;
+			.img__wrapper{
+				scroll-snap-align: start;
+			}
+			.card__img{
+				@include circle--img;
+				margin: auto;
+				margin-bottom: 5px;
+				position: relative;
+				@include transition-in;
+				scroll-snap-align: end;
+
+				&:hover{
+					padding: 0;
+					@include transition-out;
+				}
+				&.active{
+				}
+				&.self{
+					overflow: visible;
+					&:before{
+						@include bg;
+						content: '';
+						height:calc(100% - 6px );
+						width: calc(100% - 6px );
+						border-radius: 50%;
+						position: absolute;
+						top: 3px;
+						left: 3px;
+						opacity: 0.8;
+					}
+					
+				}
+				.add{
+					@include absolute--svg;
+					
+				}
+			}
+			.img__wrapper{
+				text-align: center;
+				margin-right: 30px;
+				@include responsivemmd{
+					margin-right: 12px;
+				}
+				.para{
+
+				}
+			}
+		}
+		
+	}
+
+	.accounts--top{
+		@include slicknav;
+		@include responsivemmd{
+			// display: none;
+		}
+		.section__title{
+			@include responsivemmd{
+				margin-bottom: 5px;
+			}
+		}
+		.slick-list{  
+			margin: -10px;
+			@include responsivemmd{
+				margin:-4px;
+			}
+			.item{
+				padding:15px 10px;
+				@include responsivemmd{
+					padding: 12px 4px;
+				}
+			}
+		}
+		.card{
+			border: none;
+			font-size: 16px;
+			padding: 1em;
+			@include box-shadow;
+			@include responsivemmd{
+				padding: 8px;
+			}
+			.card__top{
+				display: flex;
+				margin: 0 -5px;
+				margin-bottom: -40px;
+				@include responsivemmd{
+					margin: 0 -3px;
+					margin-bottom: -30px;
+				}
+				.card__img{
+					height: 100px;
+					margin:0 5px;
+					@include bg;
+					flex-grow: 2;
+					width: fit-content;
+					width: -moz-min-content;
+					@include responsivemmd{
+						margin: 0 3px;
+					}
+					img{
+						@include image;
+						opacity: 0.4;
+					}
+				}
+			}
+			.profile__img--wrapper{
+				position: relative;
+				margin: auto;
+				.profile__img{
+					@include circle--img;
+					height: 60px;
+					width: 60px;
+					min-width: 60px;
+					border:4px solid #fff;
+				} 
+				.lock{
+					@include absolute--svg;
+					bottom:2px;
+					right: 2px;
+				}
+			}
+			.card__title{
+				@include card-title;
+			}
+		}
+	}
+
+	.feed{
+		@include card;
+		@include responsivemmd{
+			.section__title{
+				display: none;
+			}
+		}
+		.card{
+			margin-bottom: 50px;
+			@include responsivemmd{
+				@include mb;
+			}
+		}
+
+	}
+
+	// @include modal--post;
+
+	
+
+}
+
+@import './component_css/footer';

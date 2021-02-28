@@ -1,0 +1,131 @@
+.nav__item {
+	padding-left: 26px;
+	&:nth-child(2){
+		padding-left: 0;
+	}
+	.screen{
+		.right{
+			.section__title{
+				font-size: 24px;
+				margin-bottom: 15px;
+			}
+			@include card;
+			@include slicknav;
+			@include nextslick;
+			
+			article{
+				@include card__margin;
+			}
+
+			.card{
+				padding: 0px;
+				@include border-radius;
+				overflow: hidden;
+				.card__img{
+					height: 150px;
+					margin-bottom: 4px;
+					border-radius:0;
+					overflow: hidden;
+					position:relative;
+				}
+				.card__title{
+					font-size: 18px;
+
+				}
+				.card__body{
+					padding:16px 14px ;
+				}
+				@include tags;
+				.card__top{
+					margin-top: 1em;
+					align-items: center;
+					line-height: 1.2;
+					.card__img{
+						height: 34px;
+						width: 34px;
+						border-radius:50%;
+						overflow: hidden;
+						margin-right: 10px;
+						margin-bottom: 0 !important;
+					}
+					.card__title, .small__title{
+						font-size: 14px;
+						font-weight: 400;
+						font-style: normal;
+						margin-bottom: 0;
+						color: $para;
+						span{
+							opacity: .4;
+						}
+					}
+					.card__title{
+						font-weight: bold;
+					}
+
+				}
+			}
+
+			.carousel{
+				.slick-list{
+					margin: 0 -10px;
+					article{
+						padding: 10px;
+					}
+				}
+			}
+			.white{
+				display: flex;
+				margin: auto;
+			}
+
+		}
+	}
+
+	.courses--for--you{ 
+		@include card__margin;
+		.slick-list{
+			position: relative;
+			&:after{
+				content: "";
+				position: absolute;
+				height: 100%;
+				width: 150px;
+				background: linear-gradient(270deg, #FBFBFB 49.76%, rgba(251,251,251,0) 100%);
+				right: -90px;
+				top: 0;
+				pointer-events: none;
+				@include transition-out;
+
+			}
+			&.active:after{
+				// content: none;
+				opacity: 0;
+				// right: auto;
+				// left: -90px;
+				// transform: rotateY(180deg);
+			}
+		}
+		.para{
+			@include lineclamp(1);
+		}
+	}
+	.courses--for--you--lg{
+		@extend .courses--for--you;
+		margin-bottom: 0; 
+		.slick-list{
+			&:after{
+				content: none;
+			}
+		}
+		.slick-next.slick-arrow{
+			right: 0 !important; 
+		}
+		.slick-prev.slick-arrow{
+			right: 80px !important;
+		}
+	}
+	.courses--for--you--2{
+		@extend .courses--for--you; 
+	}
+
+	
