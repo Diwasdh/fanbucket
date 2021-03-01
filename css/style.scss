@@ -255,14 +255,22 @@ main{
 			@include responsivemmd{
 				@include mb;
 			}
+			.card__img:not(.locked){
+				cursor: zoom-in;
+				opacity: 1;
+				transition: none;
+				&.active{
+					transform: scale(1.5);
+					opacity: 0;
+					@include transition-in;
+					
+				}
+			}
 		}
 
 	}
 
 	// @include modal--post;
-
-	
-
 }
 
 @import './component_css/footer';

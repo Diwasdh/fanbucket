@@ -368,6 +368,7 @@ $('#post__card__link__input').change(function(e){
 
 
 const uploadImage = function(input, imageAppend, timestamp) {
+	debugger;
 	if (input.files) {
 		let filesAmount = input.files.length;
 		for (i = 0; i < filesAmount; i++) {
@@ -423,7 +424,6 @@ const uploadImage = function(input, imageAppend, timestamp) {
 			reader.readAsDataURL(input.files[i]);
 		}
 	}
-
 };
 
 $(".feed .dropdown").on("click", ".dropdown-toggle", function(e) { 
@@ -457,9 +457,39 @@ $('button.follow').click(function(e){
 
 
 $('.toast').toast({
-	delay: 3000,
+	delay: 5000,
 	// hide:'false'
 });
+
+// modal fullImage
+const fullImageImg = $('#fullImage--modal .aside__left .card__img img');
+function imageZoom(elem){
+	elem.removeClass('active');
+}
+$('.feed .card__img:not(.locked)').click(function(e){
+	debugger ;
+	e.preventDefault();
+	let elem = $(this);
+	let elemImage = elem.find('img').attr('src');
+	fullImageImg.attr('src', elemImage)
+	$(this).addClass('active');
+	setTimeout(()=>{
+		imageZoom(elem)
+	}, 1000);
+	
+	$('#fullImage--modal').modal('show');
+
+})
+
+$('#fullImage--modal').on('show.bs.modal', function (event) {
+	let elem = $('#fullImage--modal .aside__left .card__img');
+	console.log(elem)
+	elem.addClass('active');
+	setTimeout(()=>{
+		imageZoom(elem)
+	}, 500);
+})
+
 
 
 

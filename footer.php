@@ -1,16 +1,15 @@
-<footer>
+<!-- <footer>
 	<canvas id="thumblain"></canvas>
 	<video id="fakeVideo">
 		<source src="" type="video/mp4" >
 	</video>
-</footer>
+</footer> -->
 
 
 <?php 
-	include './template/modal--post.php'
- ?>
- <?php 
-	include './template/notification-toast.php'
+	include './template/modal--post.php' ;
+	include './template/notification-toast.php' ;
+	include './template/modal--fullImage.php' ;
  ?>
 
 
