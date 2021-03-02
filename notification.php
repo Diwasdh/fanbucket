@@ -110,7 +110,7 @@ include './template/nav.php';
 									<div class="card__img">
 										<img src="./gallery/yoel-peterson-mMv_e4F-VU4-unsplash-min.jpg" alt="">
 									</div>
-									<div class="card__img small__img locked">
+									<div class="card__img small__img locked ">
 										<img src="./gallery/blur.png" alt="">
 										<a href="#" class="absolute__link">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16.652" height="18.656" viewBox="0 0 16.652 18.656">
@@ -119,7 +119,7 @@ include './template/nav.php';
 
 										</a>
 									</div>
-									<a href="#" class="card__img small__img locked">
+									<a href="#" class="card__img small__img locked bg">
 										<div class="absolute__link">
 											<div class="card__img__content">
 												<svg xmlns="http://www.w3.org/2000/svg" width="16.652" height="18.656" viewBox="0 0 16.652 18.656">

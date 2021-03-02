@@ -413,41 +413,41 @@ email: anjitpariyar@gmail.com
 github: https://github.com/anjitzero
 ----------------------------------------------------------*/
 
-	html{
-		font-size: 16px;
-		scroll-behavior: smooth;
-		@include responsive(589px){
-			font-size: 12px;
-		}
+html{
+	font-size: 16px;
+	scroll-behavior: smooth;
+	@include responsive(589px){
+		font-size: 12px;
 	}
+}
 
-	a:hover{
-		text-decoration: none;
-		color: currentColor;
+a:hover{
+	text-decoration: none;
+	color: currentColor;
+}
+
+a:active, a:focus {
+	outline: 0;
+	border: none;
+	outline-style: none;
+}
+
+a{
+	transition: .3s ease;
+	color: currentColor;
+	&:hover{
+		color: $primary-color;
 	}
-
-	a:active, a:focus {
-		outline: 0;
-		border: none;
-		outline-style: none;
-	}
-
-	a{
-		transition: .3s ease;
-		color: currentColor;
-		&:hover{
-			color: $primary-color;
-		}
-		a:active{
-			color:$primary-color;
-		}
-	}
-
 	a:active{
-		color: $red;
+		color:$primary-color;
 	}
+}
 
-	h1,h2,h3{
+a:active{
+	color: $red;
+}
+
+h1,h2,h3{
 		// text-transform: capitalize;
 		font-size: 3rem;
 		margin-bottom: 20px;
@@ -681,6 +681,23 @@ select + i {
 }
 .select-wrapper, .select--wrapper{
 	position: relative;
+}
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+
+}
+@mixin noSelect{
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 

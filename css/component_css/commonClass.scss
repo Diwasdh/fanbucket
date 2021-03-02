@@ -1,5 +1,67 @@
 
+#modal--logout{
+	@include modal;
+	.card__link{
+		display: flex;
+		justify-content: center;
+		button{
+			margin:0 10px;
+		}
+	}
 
+}
+
+.modal--edit{
+	.modal-dialog {
+		margin-top: 100px;
+	}
+	form .modal--post__ph--upload .uploading .lock{
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.loader{
+	.shadow {
+		width: 50px;
+		height: 5px;
+		background: #000;
+		opacity: 0.1;
+		border-radius: 50%;
+		animation: shadow .5s linear infinite;
+		margin-top: 20px;
+	}
+	.box {
+		width: 50px;
+		height: 50px;
+		@include bg;
+		animation: animate .5s linear infinite;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items:center;
+		&> img{
+			width: 22px !important;
+			height: auto !important;
+			object-fit: contain !important;
+		}
+		.cls-3 {
+			fill: #fff;
+		}
+	}
+}
+
+.loader__wrapper{
+	display: none;
+	align-items: center;
+	&.active{
+		display: flex;
+	}
+	.section__title{
+		margin-bottom: 0;
+		margin-left: 10px;
+	}
+}
 .fullImage{
 	@include modal;
 	overflow-y: hidden !important;
@@ -18,8 +80,8 @@
 	}
 	.close{
 		position: absolute;
-		top: 110px;
-		left: -74px;
+		top: 117px;
+		left: -72px;
 		z-index: 2;
 		background-color:#fff;
 		.cls-1{
