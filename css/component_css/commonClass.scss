@@ -62,6 +62,7 @@
 		margin-left: 10px;
 	}
 }
+
 .fullImage{
 	@include modal;
 	overflow-y: hidden !important;
@@ -145,5 +146,163 @@
 			width: 0;
 			height: 0;
 		}
+	}
+}
+
+.modal--shareFeed{
+	
+	form {
+		textarea.form-control{
+			height: 80px;
+		}
+
+	}
+	
+}
+.shared-feed{
+	@include feed;
+	.feed{
+		width: 100%;
+		max-width: 500px;
+
+		.card{
+			font-size: 14px;
+			margin-bottom: 30px;
+			background-color:$white;
+			box-shadow:none !important;
+			.image--multi{
+				.image--multi__left{
+					min-width: 245px;
+					width: 300px;
+					padding-left: 10px;
+					.card__img{
+						block-size: calc(50% - 12px);
+					}
+				}
+			}
+			.card__img{
+				max-height: 300px;
+				margin-bottom: 12px;
+			}
+			.card__top{
+				margin-bottom: 14px;
+				.card__img{
+					height: 50px;
+					width: 50px;
+					min-width: 50px;
+				}
+			}
+			.user__text{
+				margin-bottom: 15px;
+				font-size: 16px;
+			} 
+		}
+	}
+}
+
+
+.shared {
+	margin-bottom: 0 !important;
+	.card{
+		margin-bottom: 20px !important;
+		box-shadow: rgba(35,35,35,0.1) 2px 2px 12px !important;
+		.card__top{
+			margin-bottom: 0 !important;
+			.card__img{
+				height: 50px !important;
+				width: 50px !important;
+				min-width: 50px !important;
+			}
+		}
+		
+	}
+}
+
+.modal--shareMessage{
+	.shared-feed{
+		display: flex;
+		gap:20px;
+		.feed{
+			// max-width:500px;
+		}
+	}
+	.person--aside{
+		form{
+			margin-right: 16px;
+			flex-grow: 2;
+			.form-group{
+				width: 100%;
+				position: relative;
+				margin-bottom: 0;
+				.form-control{
+					border:1px solid  #d5d5d5;
+					background-color: transparent;
+					color: $para !important;
+					box-shadow: none !important;
+					outline: none !important;
+					height: 46px;
+					border-radius: 6px;
+					padding: 0 26px;
+					text-indent: 20px;	
+					&::placeholder{
+						color: $para !important;
+					}
+					&:focus, &:focus-within{
+
+					}
+
+				}
+				svg{
+					height: 16px;
+				}
+
+				.search{
+					position: absolute;
+					top: 50%;
+					left: 12px;
+					transform: translateY(-50%);
+					opacity: 0.6;
+					.cls-1, .cls-2{
+						fill: $para;
+					}
+				}
+				
+			}
+		}
+		.modal-body{
+			@include card;
+			@include chat--card;
+			.chat--card{
+				padding: 0;
+				.card__top{
+					.card__img{
+						height: 40px;
+						width: 40px;
+						min-width: 40px;
+						.online {
+							height: 10px;
+							width: 10px;
+							bottom: -2px;
+							right: 2px;
+						}
+					}
+					.card__top__body{
+						padding: 0 10px;
+					}
+					.card__title{
+						font-weight: 500;
+						font-size: 16px;
+					}
+				}
+			}
+		}
+	}
+	.search {
+		position: absolute;
+		top: 50%;
+		left: 12px;
+		transform: translateY(-50%);
+		opacity: 0.6;
+		height: 16px;
 	}
 }

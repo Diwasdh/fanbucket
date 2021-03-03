@@ -469,6 +469,46 @@ include './template/nav.php';
 						<time class="date small text-muted">Sep 18 <i class="bi bi-check2"></i></time>
 					</div>
 				</article>
+				<article class="chat--box">
+					<a class="card__img card--pp" data-toggle="tooltip" data-placement="right" title="View Profile" href="#!">
+						<img src="./gallery/matheus-ferrero-weKST3rzpkM-unsplash-min.jpg" alt="">
+					</a>
+					<div class="chat--box__body">
+						<div class="shared-feed">
+							<div class="feed ">
+								<a href="./index.php" class="card">
+									<div class="card__body">
+
+										<div class="card__img">
+											<img src="./gallery/yoel-peterson-mMv_e4F-VU4-unsplash-min.jpg" alt="">
+										</div>
+
+										<p class="user__text">Chilling out on my own !
+										life goes brrr..</p>
+
+									</div>
+									<div class="card__top">
+										<div class="card__img">
+											<img src="./gallery/matheus-ferrero-weKST3rzpkM-unsplash-min.jpg" alt="">
+										</div>
+
+										<div class="card__top__body">
+											<h2 class="card__title">Simon Hensberg</h2>
+											<time>3 minutes ago</time>
+										</div>
+									</div>
+									<button type="submit">
+										Unlock Post: $20
+									</button>
+								</a>
+							</div>
+							<div class="user--text">
+								<p class="para">Yo! How do I look in this picture? I had clicked in my travel </p>
+							</div>
+							<time class="date small text-muted">Sep 18</time>
+						</div>
+					</div>
+				</article>
 			</div>
 			<div class="drag--here--wrapper" id="drop-area">
 				<article class="drag--here " >
@@ -541,7 +581,6 @@ include './template/nav.php';
 
 				</div>
 			</form>
-			
 		</div>
 	</div>
 </aside>

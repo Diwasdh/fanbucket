@@ -8,8 +8,10 @@
 
 <?php 
 	include './template/modal--post.php' ;
+	include './template/modal--shareFeed.php' ;
 	include './template/notification-toast.php' ;
 	include './template/modal--fullImage.php' ;
+	include './template/modal--shareMessage.php' ;
  ?>
 
 

@@ -475,7 +475,7 @@ $('.feed .card__img:not(.locked)').click(function(e){
 	$(this).addClass('active');
 	setTimeout(()=>{
 		imageZoom(elem)
-	}, 1000);
+	}, 300);
 	
 	$('#fullImage--modal').modal('show');
 
@@ -488,7 +488,18 @@ $('#fullImage--modal').on('show.bs.modal', function (event) {
 	setTimeout(()=>{
 		imageZoom(elem)
 	}, 500);
-})
+});
+
+let square = $('main.main .feed .image--multi');
+if(square){
+	square.each(function(i, elem){
+		console.log(elem)
+		$(elem).css('height', elem.clientWidth+'px');
+	})
+
+	
+}
+
 
 
 

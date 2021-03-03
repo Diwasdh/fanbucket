@@ -98,8 +98,6 @@ main{
 					@include lineclamp(1);
 				}
 			}
-
-
 		}
 	}
 
@@ -260,8 +258,8 @@ main{
 				opacity: 1;
 				transition: none;
 				&.active{
-					transform: scale(1.5);
-					opacity: 0;
+					transform: scale(1.2);
+					// opacity: 0;
 					@include transition-in;
 					
 				}

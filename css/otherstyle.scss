@@ -30,10 +30,13 @@
 	}
 
 	.other--nav{
+
 		font-size: 18px;
+		
 		.card__title{
 			@include card-title;
 		}
+
 		.list-group{
 			.list-group-item{
 				border:0;
@@ -614,6 +617,12 @@
 			font-size: 20px;
 		}
 	}
+	.feed{
+		.card{
+			border-radius: 16px !important;
+			margin-bottom: 6px !important;
+		}
+	} 
 }
 
 .modal--tips{
@@ -811,6 +820,7 @@
 		}
 
 	}
+	
 }
 
 .page--search{
@@ -1017,9 +1027,7 @@
 			margin-bottom: 12px ;
 		}
 	}
-
 	
-
 
 }
 
