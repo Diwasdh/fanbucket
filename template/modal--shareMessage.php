@@ -8,7 +8,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-
+				<hr>
 				<form action="#!" method="" >
 					<div class="form__wrapper">
 						<div class="form-group">
@@ -27,6 +27,68 @@
 							</a>
 						</div>
 						<div class="shared-feed">
+							<aside class="person--aside">
+								<form action="#!" method="" class="form">
+									<div class="form-group">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.2 17.92" class="search"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g class="cls-1"><path class="cls-2" d="M7.87,15.74a7.87,7.87,0,1,1,7.87-7.87A7.88,7.88,0,0,1,7.87,15.74ZM7.87,1a6.87,6.87,0,1,0,6.87,6.87A6.88,6.88,0,0,0,7.87,1Z"></path><rect class="cls-2" x="15.03" y="11.96" width="1" height="6.56" transform="translate(-6.23 15.45) rotate(-45)"></rect></g></g></g></svg>
+										<input type="search" class="form-control"  id="searchFriend">
+									</div>
+								</form>
+								<div class="modal-content">
+									<div class="modal-header title__wrapper">
+										
+									</div>
+									<div class="modal-body">
+										<h2 class="section__title">Online</h2>
+										<a href="./messenger-single.php" title="Send message to Person Name" class="card chat--card">
+											<div class="card__top">
+												<div class="card__img">
+													<img src="./gallery/ali-yahya-43cZUXtT3yc-unsplash-min.jpg" alt="">
+													<div class="online">
+
+													</div>
+												</div>
+
+												<div class="card__top__body">
+													<h2 class="card__title">Tonny Ray</h2>
+												</div>
+											</div>
+										</a>
+										<a href="./messenger-single.php" title="Send message to Person Name" class="card chat--card">
+											<div class="card__top">
+												<div class="card__img">
+													<img src="./gallery/allef-vinicius-xxTHuC_wdn0-unsplash-min.jpg" alt="">
+													<div class="online">
+
+													</div>
+												</div>
+
+												<div class="card__top__body">
+													<h2 class="card__title">Simon Ray</h2>
+												</div>
+											</div>
+										</a>
+										<a href="./messenger-single.php" title="Send message to Person Name" class="card chat--card">
+											<div class="card__top">
+												<div class="card__img">
+													<img src="./gallery/devon-byers-M-Zr085ub6Q-unsplash-min.jpg" alt="">
+													<div class="online">
+
+													</div>
+												</div>
+
+												<div class="card__top__body">
+													<h2 class="card__title">Amoir Nas</h2>
+												</div>
+											</div>
+										</a>
+
+									</div>
+								</div>
+								<button type="submit">
+									Send Now
+								</button>
+							</aside>
 							<div class="feed ">
 								<a href="./index.php" class="card">
 									
@@ -73,67 +135,8 @@
 										</div>
 									</div>
 								</a>
-								<button type="submit">
-									Share Now
-								</button>
 							</div>
-							<aside class="person--aside">
-								<div class="modal-content">
-									<div class="modal-header title__wrapper">
-										<form action="#!" method="" class="form">
-											<div class="form-group">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.2 17.92" class="search"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g class="cls-1"><path class="cls-2" d="M7.87,15.74a7.87,7.87,0,1,1,7.87-7.87A7.88,7.88,0,0,1,7.87,15.74ZM7.87,1a6.87,6.87,0,1,0,6.87,6.87A6.88,6.88,0,0,0,7.87,1Z"></path><rect class="cls-2" x="15.03" y="11.96" width="1" height="6.56" transform="translate(-6.23 15.45) rotate(-45)"></rect></g></g></g></svg>
-												<input type="search" class="form-control" required=""  id="searchFriend">
-											</div>
-										</form>
-									</div>
-									<div class="modal-body">
-										<h2 class="section__title">Online</h2>
-										<a href="./messenger-single.php" title="Send message to Person Name" class="card chat--card">
-											<div class="card__top">
-												<div class="card__img">
-													<img src="./gallery/ali-yahya-43cZUXtT3yc-unsplash-min.jpg" alt="">
-													<div class="online">
 
-													</div>
-												</div>
-
-												<div class="card__top__body">
-													<h2 class="card__title">Tonny Ray</h2>
-												</div>
-											</div>
-										</a>
-										<a href="./messenger-single.php" title="Send message to Person Name" class="card chat--card">
-											<div class="card__top">
-												<div class="card__img">
-													<img src="./gallery/allef-vinicius-xxTHuC_wdn0-unsplash-min.jpg" alt="">
-													<div class="online">
-
-													</div>
-												</div>
-
-												<div class="card__top__body">
-													<h2 class="card__title">Simon Ray</h2>
-												</div>
-											</div>
-										</a>
-										<a href="./messenger-single.php" title="Send message to Person Name" class="card chat--card">
-											<div class="card__top">
-												<div class="card__img">
-													<img src="./gallery/devon-byers-M-Zr085ub6Q-unsplash-min.jpg" alt="">
-													<div class="online">
-
-													</div>
-												</div>
-
-												<div class="card__top__body">
-													<h2 class="card__title">Amoir Nas</h2>
-												</div>
-											</div>
-										</a>
-									</div>
-								</div>
-							</aside>
 						</div>
 					</div>
 
@@ -151,3 +154,9 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	window.addEventListener('DOMContentLoaded', (event) => {
+
+	});
+</script>

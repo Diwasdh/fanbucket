@@ -159,6 +159,9 @@
 	}
 	
 }
+#fullImage--modal{
+	z-index: 1090 !important;
+}
 .shared-feed{
 	@include feed;
 	.feed{
@@ -172,8 +175,8 @@
 			box-shadow:none !important;
 			.image--multi{
 				.image--multi__left{
-					min-width: 245px;
-					width: 300px;
+					min-width: 200px;
+					width: 245px;
 					padding-left: 10px;
 					.card__img{
 						block-size: calc(50% - 12px);
@@ -218,15 +221,21 @@
 	}
 }
 
+
+
 .modal--shareMessage{
 	.shared-feed{
 		display: flex;
 		gap:20px;
-		.feed{
-			// max-width:500px;
+		input.form-control{
+			text-indent: 22px;
+			box-shadow:none !important;
 		}
 	}
+
 	.person--aside{
+		flex-grow: 2;
+		max-width: 50%;
 		form{
 			margin-right: 16px;
 			flex-grow: 2;
@@ -296,7 +305,21 @@
 				}
 			}
 		}
+		.modal-content{
+			padding: 15px;
+			margin-bottom: 20px;
+			max-height: 500px;
+			overflow-y: scroll;
+			scrollbar-width: none;
+			&::-webkit-scrollbar {
+				background: transparent; /* make scrollbar transparent */
+				-webkit-appearance: none;
+				width: 0;
+				height: 0;
+			}
+		}
 	}
+
 	.search {
 		position: absolute;
 		top: 50%;
@@ -304,5 +327,15 @@
 		transform: translateY(-50%);
 		opacity: 0.6;
 		height: 16px;
+
+	}
+
+	.feed {
+		width: 100%;
+		max-width: 400px;
+		.card .image--multi .image--multi__left{
+			min-width: 180px;
+			width: 250px;	
+		}
 	}
 }
