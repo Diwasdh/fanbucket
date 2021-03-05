@@ -286,27 +286,14 @@ include 'footer.php';
     	bioCalc();
 
     	$('#bioText').keyup(function(e){
+    		debugger;
     		bioCalc();
     	});
     })
 
 
 	window.addEventListener('DOMContentLoaded', (event) => {
-		// get the tab from url
-		var hash = window.location.hash;
-    	// if a hash is present (when you come to this page)
-    	
-    	if (hash !='') {
-        	// show the tab
-        	$('.nav-tabs a[href="' + hash + '"]').tab('show');
-        	var show= $(hash);
-
-        	active.addClass('active');
-    		// active.click();
-    		show.addClass('show active');
-    		hash='';
-
-    	}
+		
 
     	let marker = document.querySelector('.indicator');
     	let item = document.querySelectorAll('.nav.nav-tabs .nav-link');
