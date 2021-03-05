@@ -82,8 +82,14 @@ $wid02:1000px;
 	}
 }
 
+@mixin responsivexlg{
+	@media only screen and (max-width: 1300px){
+		@content;
+	}
+}
+
 @mixin responsivelg{
-	@media only screen and (max-width: 1030px){
+	@media only screen and (max-width: 1130px){
 		@content;
 	}
 }
@@ -669,7 +675,6 @@ select {
 
 
 select + i {
-	
 	position: absolute;
 	right: 0;
 	position: absolute;
@@ -677,7 +682,6 @@ select + i {
 	pointer-events: none;
 	top: 50%;
 	transform: translateY(-50%);
-	
 }
 .select-wrapper, .select--wrapper{
 	position: relative;

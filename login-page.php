@@ -94,10 +94,22 @@ include 'header.php';
 			</div>
 		</div>
 	</aside>
-	
 
 	<aside class="login-pages__main main--padding">
+		<article class="mob-login mob-login--top">
+			<div class="logo--top">
+				<img src="./gallery/logo--hr.png" alt="">
+				<a  class="link" href="#!">Sign Up</a>
+			</div>
+			<img src="./gallery/mobpp.png" alt="" class="mobpp">
+			
+		</article>
 		<article class="login__top">
+			<div class="mob-login">
+				<h2 class="section__title text-active">Log In</h2>
+				<p class="para">Welcome back !</p>	
+			</div>
+
 			<form action="./index.php" class="form-inline">
 				<div class="form-group ">
 					<input type="text"  class="form-control br"  placeholder="Username" autofocus="">
@@ -110,7 +122,7 @@ include 'header.php';
 				</button>
 			</form>
 		</article>
-		<article class="signup--wrapper">
+		<article class="signup--wrapper" >
 			<div class="d-flex">
 				<div class="signup--left ">
 					<div class="popular--user">
@@ -136,7 +148,7 @@ include 'header.php';
 					</div>
 					
 				</div>
-				<div class="signup--right">
+				<div class="signup--right ">
 					<div class="signup--wrapper__half">
 
 						<div class="logo--top">
@@ -144,10 +156,21 @@ include 'header.php';
 							<h2 class="section__title section__title--lg">Ready to make fans?</h2>
 						</div>
 
+						<div class="mob-login">
+							<h2 class="section__title text-active">Sign Up</h2>
+							<p class="para">Ready to make fans?</p>	
+						</div>
 
-						<form  class="sign-up--form step1">
+
+						<form  class="sign-up--form step1" action="./index.php">
 							<div class="form-group ">
-								<input type="text"  class="form-control br"  placeholder="Username" required="">
+								<input type="text" class="form-control br" name="Fullname" placeholder="Fullname" required="required">
+							</div>
+							<div class="form-group ">
+								<input type="text" class="form-control br" name="Username" placeholder="Username" required="required">
+							</div>
+							<div class="form-group ">
+								<input type="email"  class="form-control br"  placeholder="Email" required="">
 							</div>
 							<div class="form-group ">
 								<input type="password"  class="form-control br"  placeholder="Password" required="">
@@ -159,11 +182,7 @@ include 'header.php';
 								</label>
 							</div>
 						</form>
-						<form class="sign-up--form step2" action="./index.php">
-							<div class="form-group ">
-								<input type="text"  class="form-control br"  placeholder="Username">
-							</div>
-						</form>
+						
 
 						<div class="signup--bottom">
 							<p class="dark">Join fanbucket now.</p>
@@ -186,6 +205,7 @@ include 'header.php';
 			</div>
 		</article>
 	</aside>
+
 </main>
 
 
@@ -211,6 +231,14 @@ include 'header.php';
 				<a href="#!" class="nav-link" target="_blank">Language </a>
 			</li>
 		</ul>
+		<div class="app mob-login">
+			<a href="#" target="_blank">
+				<img src="./gallery/app/google_play.png" alt="">
+			</a>
+			<a href="#" target="_blank">
+				<img src="./gallery/app/istore.png" alt="">
+			</a>
+		</div>
 	</div>
 </footer>
 
@@ -242,18 +270,38 @@ include 'header.php';
 				
 			}
 			else{
-				$('.step2').submit();
+				$('.step1').submit();
 			}
 			
 		})
 
-		$('.signup--wrapper__half .sign-up--form.step1').submit(function(e){
-			let parentFormHide = $('.signup--wrapper__half .sign-up--form:hidden')[0];
-			let parentFormVisible = $('.signup--wrapper__half .sign-up--form:visible')[0];
-			$(parentFormVisible).hide('300')
-			$(parentFormHide).show('500');
+		// $('.signup--wrapper__half .sign-up--form.step1').submit(function(e){
+		// 	let parentFormHide = $('.signup--wrapper__half .sign-up--form:hidden')[0];
+		// 	let parentFormVisible = $('.signup--wrapper__half .sign-up--form:visible')[0];
+		// 	$(parentFormVisible).hide('300')
+		// 	$(parentFormHide).show('500');
+		// })
+
+		$('.mob-login.mob-login--top .link').click(function(e){
+			e.preventDefault();
+			
+			$('.signup--wrapper').is(":visible") ? $(this).text('Sign Up') : $(this).text('Sign In')
+			
+			$('.signup--wrapper').slideToggle('300');
+			
+			
 		})
 
+		if($(window).width()<840){
+			$('.signup--wrapper__half').addClass('active');
+			$('.signup--bottom button.common').click(function(e){
+				$('form.step1').submit();
+			})
+			$('.signup--bottom button.common').attr('type','submit');
+			$('.signup--bottom button.common').removeClass('common');
+			
+
+		}
 
 	})
 </script>

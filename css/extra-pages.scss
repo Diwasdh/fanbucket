@@ -19,6 +19,7 @@
 		opacity: 0;
 	}
 }
+
 @include keyframes(bottom-top) {
 	0%{
 		transform: rotate(0deg);
@@ -68,15 +69,33 @@
 		transform: rotate(-200deg) scale(1.5) ;
 	}
 }
+@include keyframes(rotateY) {
+	0%{
+		transform: skew(0deg) rotateY(0deg);
+	}
+
+	50%{
+		transform: skew(6deg) rotateY(15deg);
+	}
+
+	
+	100%{
+		transform: skewY(-10deg) rotateY(-15deg);
+	}
+}
 
 
 $common-padding: 70px;
+
 body{
 	flex-wrap: wrap;
 }
 
 .login-pages{
 	max-width: 1920px;
+	@include responsivelg{
+		// height: auto;
+	}
 	.br{
 		border-radius:8px !important;
 	}
@@ -84,6 +103,9 @@ body{
 	.illustration{
 		@include bg;
 		overflow: hidden;
+		@include responsivemd{
+			display: none;
+		}
 		&:before{
 			content: "";
 			position: absolute;
@@ -103,37 +125,47 @@ body{
 				svg{
 					height: 175px;
 					width: auto;
-					@include responsivemmd{
+					@include responsivemd{
 						height: 125px;
 					}
 				}
 			}
 		}
+
 		.person--circular--wrapper{
 			position: absolute;
-			top: 105px;
+			top: 140px;
 			right: -5%;
 			z-index: 0;
 			animation: bottom-top 30s  4s linear infinite;
 			transform-origin: 100% center;
-			height: 85%;
+			height: 81%;
 			display: flex;
 			justify-content: center;
 			align-items: flex-end;
-			@include responsive(1550px){
+			@include responsive(1600px){
 				right: -8%;
-				height: 78%;
+				height: 74%;
 			}
-			@include responsivemmd{
+			@include responsivexlg{
+				height: 79%;
+			}
+
+			@include responsivelg{
+				transform-origin: 260% center;
+			}
+
+			@include responsivemd{
 				right: -27px;
 				top: 120px;
 			}
+
 
 			@for $i from 1 through 10 {
 				&:nth-child(#{$i}) {
 					&, .person--circular{
 						// animation-delay: $i * 6 + 6s;
-						animation-delay: $i * 6s;
+						animation-delay: $i * 4s;
 
 
 					}
@@ -141,11 +173,11 @@ body{
 						// animation-delay: $i *4 + 4s !important;	
 						animation-delay: $i *4 + 0s !important;	
 
-						animation-duration: $i + 5s !important;						
+						animation-duration: $i + 3s !important;						
 					}
 				}
 				&:nth-child(3n){
-					transform-origin: 32% 40%;
+					transform-origin: 95% 10%;
 				}
 			}
 
@@ -198,7 +230,6 @@ body{
 						content: none;
 					}
 					
-					
 				}
 				.circle--lg{
 					transform: scale(1);
@@ -240,25 +271,48 @@ body{
 		flex-grow: 2;
 		padding: 50px $common-padding;
 		position: relative;
-		@include responsivemmd{
+
+		@include responsivelg{
 			padding: 30px;
+			height: 100vh;
 		}
+
 		button.common{
 			font-size: 17px !important;
 			height: 50px;
 		}
+
 		.login__top {
 			display: flex;
 			justify-content: flex-end;
 			align-items: center;
 			margin-bottom: 40px;
+			@include responsivemd{
+				margin-bottom: 0px;
+				flex-direction: column;
+				align-items: flex-start;
+			}
+			.mob-login{
+				margin-bottom: 30px;
+			}
 		}
+
 		@include app;
+		.form-group{
+			@include responsivemd{
+				width: 100%;
+			}
+		}
 		.form-control{
 			@include input;
 			margin-right: 20px;
 			width: 200px;
 			background-color: #fafafa;
+			@include responsivemd{
+				background-color: #fff;
+				width: 100%;
+				margin: 0;
+			}
 		}
 		button[type=submit]{
 			@include button;
@@ -268,10 +322,16 @@ body{
 			background-image: none;
 			border:1px solid $primary-color;
 			font-weight: normal;
-
+			@include responsivemd{
+				width: 100%;
+				color:#fff;
+				@include bg;
+			}
 		}
-
 		.app{
+			@include responsivelg{
+				display: none;
+			}
 			a{
 				width: 50%;
 				text-align: center;
@@ -284,6 +344,7 @@ body{
 
 			}
 		}
+
 	}
 
 	.signup--wrapper{
@@ -298,6 +359,10 @@ body{
 			justify-content: center;
 			align-items: center;
 			@include br;
+			@include responsivelg{
+				min-height: 330px;
+				margin-left: -45%;
+			}
 			video{
 				width: 100%;
 				height: 100%;
@@ -305,10 +370,13 @@ body{
 				@include br;
 
 			}
-
 		}
+
 		.signup--left{
 			flex-grow: 2;
+			@include responsivemd{
+				display: none;
+			}
 		}
 
 		.signup--right {
@@ -318,6 +386,10 @@ body{
 			width: 550px;
 			@include responsive(1556px){
 				width: 580px;
+			}
+			@include responsivelg{
+				width: 420px;
+				flex-grow: 2;
 			}
 		}
 		
@@ -338,13 +410,28 @@ body{
 			justify-content: space-between;
 			position: relative;
 			transition: .3s linear;
+			@include responsivelg{
+				min-height: 0;
+			}
 
 			.sign-up--form{
 				display: none;
 				width: 100% !important;
+				@include responsivelg{
+					display: block;
+				}
+			}
+
+			.logo--top{
+				@include responsivemd{
+					display: none;
+				}
+			}
+
+			.mob-login {
+				margin-bottom: 30px;
 			}
 		}
-
 
 		.logo--top{
 			img{
@@ -359,7 +446,55 @@ body{
 				width: 100%;
 			}	
 		}
+
+		@include responsivemd{
+			display: none;
+			position: absolute;
+			height: auto;
+			width: 100%;
+			bottom: 25px;
+			left: 0;
+			background-color: #fff;
+			padding: 30px;
+		}
 	}
+
+	.mob-login{
+		@include responsivemin(835px){
+			display: none;
+		}
+		&> .section__title{
+			color: $primary-color;
+			margin-bottom: 5px;
+		}
+		.mobpp{
+			width: 100%;
+			height: auto;
+			transition: 0.3s ease-in;
+			margin: 30px auto;
+			animation: rotateY 5s linear 2s infinite forwards alternate;
+			max-height: 37vh;
+			object-fit: contain;
+		}
+	}
+
+	.mob-login--top{
+		@include card__margin;
+		.logo--top{
+			display: flex;
+			justify-content: space-between;
+			align-items:center;
+		}
+		img{
+			height: 30px;
+			width: auto;
+		}
+		.link{
+			color: $dark;
+			font-size: 14px;
+		}
+	}
+
 }
 
 .login-pages__footer{
@@ -368,14 +503,48 @@ body{
 	left:0;
 	width: 100%;
 	background-color: #fff;
+	@include responsivemd{
+		position: relative;
+	}
 	.nav{
 		justify-content: space-evenly;
 		padding: 0 $common-padding;
+		@include responsivemd{
+			justify-content: flex-start;
+			padding: 0 30px;
+			@include scrollbar;
+			display: none;
+		}
 	}
 	.nav-link{
 		margin: 0;
 		color: $dark;
 		font-size: 14px;
+	}
+	.section__rule{
+		@include responsivemd{
+			padding:5px 30px;
+			padding-bottom: 30px;
+		}
+	}
+	@include app;
+	.app{
+		a{
+			width: 50%;
+			text-align: center;
+			background-color: #0a0a0a;
+			@include br;
+			padding: 2px;
+			img{
+				display: inline;
+			}
+
+		}
+	}
+	.mob-login{
+		@include responsivemin(835px){
+			display: none;
+		}
 	}
 }
 
@@ -390,7 +559,7 @@ body{
 		.animation--part{
 			.logo{
 				bottom: -70px;	
-				@include responsivemmd{
+				@include responsivemd{
 					bottom:-50px;
 				}
 			}
@@ -617,7 +786,10 @@ body{
 			margin-bottom: 20px;
 		}
 		.signup--bottom{
-
+			@include responsivelg{
+				margin-top: 10px;
+			}
+			
 		}
 	}
 	.section--video{
@@ -677,8 +849,5 @@ body{
 			}
 		}
 	}
-
-
-
 
 }

@@ -24,7 +24,10 @@
 	aside.illustration{
 		width: 30%;
 		min-width: 400px;
-		position: relative;	
+		position: relative;
+		@include responsivelg{
+			min-width: 320px;
+		}	
 		@include responsivemmd{
 			width: 60px;
 			min-width: 60px;

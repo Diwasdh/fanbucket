@@ -693,7 +693,9 @@ $square : 50px;
 			color: $para;
 		}
 	}
-	
+	@include responsivemd{
+		height: 45px;
+	}
 	&::placeholder{
 		font-weight: lighter;
 		color: $para;

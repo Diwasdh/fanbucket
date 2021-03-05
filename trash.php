@@ -67,3 +67,54 @@
 	</div>
 </div> 
 
+<div class="signup--wrapper__half">
+
+	<div class="logo--top">
+		<img src="./gallery/logo--hr.png" alt="">
+		<h2 class="section__title section__title--lg">Ready to make fans?</h2>
+	</div>
+
+
+	<form  class="sign-up--form step1">
+		<div class="form-group ">
+			<input type="text"  class="form-control br"  placeholder="Username" required="">
+		</div>
+		<div class="form-group ">
+			<input type="password"  class="form-control br"  placeholder="Password" required="">
+		</div>
+		<div class="form-check form-group">
+			<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+			<label class="form-check-label" for="flexCheckDefault">
+				I accept all the <a href="#" target="_blank">terms and conditions.</a>
+			</label>
+		</div>
+	</form>
+	<form class="sign-up--form step2" action="./index.php">
+		<div class="form-group ">
+			<input type="text"  class="form-control br"  placeholder="Username">
+		</div>
+	</form>
+
+	<div class="signup--bottom">
+		<p class="dark">Join fanbucket now.</p>
+		
+		<button class="common" >Sign Up</button>
+		
+		<div class="app">
+			<a href="#" target="_blank">
+				<img src="./gallery/app/google_play.png" alt="">
+			</a>
+			<a href="#" target="_blank">
+				<img src="./gallery/app/istore.png" alt="">
+			</a>
+		</div>
+	</div>
+
+
+</div>
+
+<form class="sign-up--form step2" action="./index.php">
+	<div class="form-group ">
+		<input type="text"  class="form-control br"  placeholder="Username">
+	</div>
+</form>
