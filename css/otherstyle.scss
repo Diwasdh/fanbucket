@@ -203,6 +203,10 @@
 					}
 				}
 			}
+
+			.image--multi{
+				height: 100% !important;
+			}
 		}
 		.user__text{
 			white-space: normal !important;
@@ -1027,7 +1031,113 @@
 			margin-bottom: 12px ;
 		}
 	}
-	
-	
 }
 
+
+.profile--edit{
+	.profile--edit--wrapper{
+		background-color: #fff;
+		padding: 20px;
+	}
+	.profile__card__wallpaper{
+		.card__top{
+			.card__img{
+				position: relative;
+				cursor: pointer;
+				.circle--camera{
+					position: absolute;
+					background-color: rgba(207, 207, 207, 0.44);
+					padding: 5px;
+					border-radius: 60%;
+					height: 40px;
+					width: 40px;
+					overflow: visible;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%,-50%);
+					pointer-events: none;
+					svg{
+						width: auto;
+						height: 17px;
+						overflow: visible;
+					}
+				}
+				.custom-file-input{
+					position: absolute;
+					height: 100%;
+					width: 100%;
+					top: 0;
+					left: 0;
+					border-radius: 50%;
+					cursor: pointer;
+					z-index: 9;
+				}
+			}
+		}
+	} 
+	.feed {
+		display: flex;
+		nav{
+			border-right: 1px solid rgba(35, 35, 35, 0.06);
+			padding-right: 10px;
+			.nav-tabs{
+				flex-wrap: wrap;
+				flex-direction: column;
+				.nav-link{
+					width: 220px;
+					background-color: #fff;
+					&:hover,  &.active{
+						background-color: #F6F7F9  !important;
+					}
+				}
+
+				.indicator {
+					position: absolute;
+					width: 2px !important;
+					background-color: #c9a741;
+					height: 50px;
+					top: 0px;
+				}
+
+			}
+		}
+
+		aside.tab-content{
+			flex-grow: 2;
+			padding-left: 30px;
+
+			form{
+				.form-control{
+					@include input;
+					@include br12;
+					margin-bottom: 10px;
+				}
+				.form-group{
+					@include card__margin;
+				}
+				button[type="submit"]{
+					@include button;
+					width: 120px;
+				}
+				textarea.form-control{
+					height: 100px;
+				}
+				.form-control__wrapper{
+					position: relative;
+					a{
+						position: absolute;
+						top: 12px;
+						right: 16px;
+					}
+				}
+			}
+
+		}
+		
+	}
+
+
+}
