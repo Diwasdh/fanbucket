@@ -28,6 +28,8 @@
 <script type="text/javascript" src="./css/slick/slick.min.js"></script>
 
 <script src="./js/hammerjs.js"></script>
+
+<script src="./js/@popperjs/popper.min.js" type="text/javascript"></script>
 <!-- bootstrap -->
 <script type="text/javascript" src="./css/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="./css/bootstrap/js/bootstrap.min.js"></script>

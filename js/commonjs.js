@@ -7,6 +7,7 @@ $(document).ready(function(){
 		$(this).find('.dropdown-menu').removeClass('show');
 	});
 
+	$('[data-toggle="tooltip"]').tooltip();
 	
 	const currentLocation = location.href;
 	const menuItem = $('header .navbar .nav__item');
@@ -449,7 +450,7 @@ $('button.follow').click(function(e){
 		setTimeout(function(e){
 			// console.log($(this).find('img'))
 			// $(this).find('img').remove();
-			console.log(elem)
+			// console.log(elem)
 			elem.text('following');
 		}, 1500);
 	}
@@ -463,9 +464,11 @@ $('.toast').toast({
 
 // modal fullImage
 const fullImageImg = $('#fullImage--modal .aside__left .card__img img');
+
 function imageZoom(elem){
 	elem.removeClass('active');
 }
+
 $('.feed .card__img:not(.locked)').click(function(e){
 	debugger ;
 	e.preventDefault();
@@ -483,7 +486,7 @@ $('.feed .card__img:not(.locked)').click(function(e){
 
 $('#fullImage--modal').on('show.bs.modal', function (event) {
 	let elem = $('#fullImage--modal .aside__left .card__img');
-	console.log(elem)
+	// console.log(elem)
 	elem.addClass('active');
 	setTimeout(()=>{
 		imageZoom(elem)
@@ -491,16 +494,125 @@ $('#fullImage--modal').on('show.bs.modal', function (event) {
 });
 
 let square = $('main.main .feed .image--multi');
+
 if(square){
 	square.each(function(i, elem){
-		console.log(elem)
 		$(elem).css('height', elem.clientWidth+'px');
 	})
-
-	
 }
 
+// poll added
+const pollWrapper = $('.modal--post  .poll__wrapper .poll--inside');
+let elem =  $('#poll--inside--count');
+elem.val(pollWrapper[0].childElementCount - 1);
 
+// function remove cross if there is only two list item
+const crossCheck = ()=>{
+	console.log(pollWrapper[0].childElementCount)
+	if(pollWrapper[0].childElementCount >2 ){
+		pollWrapper.removeClass('removeCross');
+	}
+	else{
+		pollWrapper.addClass('removeCross');
+	}
+}
+crossCheck();
+$('.modal--post .poll__wrapper .poll--buttom button.poll--add').click(function(e){
+	debugger;
+	e.preventDefault();
+
+	// init
+	let pollMax = elem[0].max;
+
+	// universal input value
+	let pollCount = parseInt(elem.val());
+
+	// for placeholder option 1234 ..
+	let placeholderCount = pollCount + 1;
+	pollWrapper.removeClass('removeCross');
+
+	if(pollCount < pollMax ){
+		// clone template of poll and its child
+		let pollTemplate = pollWrapper.find('.custom-control:last-child').clone();
+		let pollTemplateInput = pollTemplate.find('input');
+		pollTemplateInput.val('');
+		
+
+		// grab recent id
+		let elemId = pollTemplateInput.attr('id');
+
+		// set new id for template using replace
+		elemId = (elemId.replace(`_${pollCount}`, `_${++pollCount}`));
+
+
+		// grab recent placeholder and replace bew one
+		let newPlaceholder = pollTemplateInput.attr('placeholder').replace(`Option ${placeholderCount}`, `Option ${++placeholderCount}`);
+
+		// add new placeholder and id from above
+		pollTemplateInput.attr('placeholder',  newPlaceholder)
+		pollTemplateInput.attr('id',  elemId)
+
+		// set elem value 
+		elem.val(pollCount);
+
+		// after all these finally appen the poll template phew 
+		pollTemplate.appendTo( pollWrapper );
+		pollTemplateInput.focus();
+		if(pollCount >= pollMax ){
+			$(this).hide();
+		}
+
+	}
+	else{
+		$(this).hide();
+	}
+
+})
+
+$('.modal--post .poll__wrapper .poll--inside').on('click', 'a.count', function(e){	
+	debugger;
+
+	let elemC = $(this);
+
+	let elemParents = elemC.parents('.custom-control');
+	let elemIndex = elemParents.index();
+	// let placeholderCount = elemIndex + 2;
+	let elemVal = parseInt(elem.val());
+
+
+
+	elem.val( --elemVal)
+
+	elemParents.nextAll().each((index, elem)=>{
+
+		let elemCC = $(elem).find('input');
+		// console.log(elemCC)
+
+		// grab recent id
+		let elemId = elemCC.attr('id');
+
+		// set new id for template using replace
+		elemId = (elemId.replace(`_${elemIndex + index + 1}`, `_${elemIndex + index}`));
+
+		// grab recent placeholder and replace bew one
+		let newPlaceholder = elemCC.attr('placeholder').replace(`Option ${elemIndex + index + 2}`, `Option ${elemIndex + index + 1}`);
+
+		// add new placeholder and id from above
+		elemCC.attr('placeholder',  newPlaceholder)
+		elemCC.attr('id',  elemId)
+
+	})
+	elemParents.hide(300);
+	elemParents.remove();
+	$('.modal--post .poll__wrapper .poll--buttom button.poll--add').show();
+	crossCheck();
+
+})
+
+$('.modal--post .poll--trash').click(function(e){
+	debugger;
+	$('.modal--post .poll__wrapper').toggle(300);
+})
 
 
 
